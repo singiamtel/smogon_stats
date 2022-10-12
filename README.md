@@ -15,3 +15,5 @@ node top.js 16 | xargs -n1 -P 8 node sorter.js >> out.txt
 ```
 
 You can now plot the data using `stats/plot.py`
+
+![Figure 1](pics/Yveltal.png)
