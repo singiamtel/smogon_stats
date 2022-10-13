@@ -3,6 +3,7 @@ const fs = require('fs').promises;
 const dir = "1760/"
 const pokemon = process.argv[2] || "Zygarde";
 const outdir = "output/"
+const key = "Items"
 
 function getTopValues(obj, topN)
 {
@@ -33,7 +34,7 @@ const getDataPoint = async function(pokemon, topN, key, file) {
 	return {
 		"date": new Date(file.split("/")[1].split(":")[0].substring(0,7)).toLocaleString(),
 		"top": getTopValues(dict, topN),
-		"rawCount": json.data[pokemon]["Raw count"]
+		"usage": json.data[pokemon]["usage"] * 100
 	}
 }
 
@@ -41,12 +42,12 @@ const main = async () => {
 	// console.log(await getDataPoint("Zygarde", 5, "Moves", dir + "/2022-09:gen7anythinggoes-" + dir + ".json"));
 	const dirs = await fs.readdir(dir)
 	const promises = dirs.map(async (file) => {
-		return getDataPoint(pokemon, 10, "Moves", dir + file).then(function(result) {
+		return getDataPoint(pokemon, 10, key, dir + file).then(function(result) {
 			return result;
 		});
 	});
 	const results = await Promise.all(promises);
-	fs.writeFile(outdir + pokemon + "Moves.json", JSON.stringify(results));
+	fs.writeFile(outdir + pokemon + key + ".json", JSON.stringify(results));
 }
 
 main()
