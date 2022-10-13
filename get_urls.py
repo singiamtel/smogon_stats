@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 url = 'https://www.smogon.com/stats/'
-tiers = ['gen7anythinggoes-0', 'gen7anythinggoes-1500', 'gen7anythinggoes-1630', 'gen7anythinggoes-1760']
+tiers = ['gen8anythinggoes-0', 'gen8anythinggoes-1500', 'gen8anythinggoes-1630', 'gen8anythinggoes-1760']
 
 html = requests.get(url).text
 soup = BeautifulSoup(html, 'html.parser')
