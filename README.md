@@ -1,8 +1,7 @@
 # Smogon stats analyzer
 
-The goal of this project is to analyze Smogon stats and find interesting trends. So far it's focused on finding how a given moveset evolves over time
+Analyze Smogon stats and find interesting trends. So far it's focused on finding how a given moveset evolves over time
 
-Toy pro
 
 ## Steps
 
